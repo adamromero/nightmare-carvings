@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
    title: "Nightmare Carvings",
-   description: "Ecommerce website to purchase pumpkin carving patterns",
+   description: "E-commerce website to purchase pumpkin carving patterns",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
       <html lang="en">
          <body className={inter.className}>
             <Header />
-            {children}
+            <main className="max-w-[960px] mx-auto p-[16px]">{children}</main>
          </body>
       </html>
    );

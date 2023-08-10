@@ -1,9 +1,32 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
    return (
-      <main>
-         <div>"I bid you welcome!" -Dracula</div>
-      </main>
+      <>
+         <h1 className="cinzel text-2xl font-bold text-center text-[#e88e06]">
+            Welcome to Nightmare Carvings!
+         </h1>
+         <p className="max-w-[960px]">
+            Have a look around to see the patterns...
+         </p>
+         <div className="text-center relative">
+            <Link href="/patterns">
+               <div className="absolute top-1/2 text-3xl text-white w-full z-10 font-bold">
+                  Continue to the patterns
+               </div>
+               <div className="bg-blend-lighten hover:bg-blend-darken">
+                  <Image
+                     src={
+                        "http://localhost:1337/uploads/vampire_ede35923bc.png?updated_at=2022-08-14T01:12:02.809Z"
+                     }
+                     height={300}
+                     width={300}
+                     alt=""
+                  />
+               </div>
+            </Link>
+         </div>
+      </>
    );
 }

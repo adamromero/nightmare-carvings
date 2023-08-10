@@ -7,20 +7,26 @@ const cinzel = Cinzel({ subsets: ["latin"], weight: ["600"] });
 
 const Header = () => {
    return (
-      <header className="bg-black p-[10px]">
-         <div className="flex items-center justify-between max-w-[1200px] mx-auto">
-            <div
-               className={`${cinzel.className} flex flex-1 gap-[15px] items-center`}
-            >
-               <h1 className="text-[25px]">
-                  <Link href="/">Nightmare Carvings</Link>
-               </h1>
-               <Link href="/patterns">Patterns</Link>
-               <Link href="/about">About</Link>
+      <header className="bg-black py-[10px] border-b-2 border-[#ff7300]">
+         <div
+            className={`${cinzel.className} flex flex-col items-center justify-between max-w-[960px] px-[16px] mx-auto`}
+         >
+            <div className="flex items-center w-full">
+               <div className="flex-1"></div>
+               <Link className="flex-1" href="/">
+                  <h1 className="text-[25px] text-center leading-6 mb-[16px] md:mb-0 md:whitespace-nowrap">
+                     Nightmare Carvings
+                  </h1>
+               </Link>
+               <div className="flex-1 flex justify-end">
+                  <IoCartSharp className="text-[#ff7300] text-[25px] cursor-pointer" />
+               </div>
             </div>
 
-            <div>
-               <IoCartSharp className="text-[orange] text-[25px] cursor-pointer" />
+            <div className="flex flex-1 gap-[25px] items-center">
+               <Link href="/patterns">Patterns</Link>
+               <Link href="/about">About</Link>
+               <Link href="/contact">Contact</Link>
             </div>
          </div>
       </header>
