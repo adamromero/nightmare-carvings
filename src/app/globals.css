@@ -29,3 +29,14 @@ body {
       rgba(32, 32, 32, 1) 100%
    );
 }
+
+.react-responsive-modal-container .react-responsive-modal-modal {
+   width: 100%;
+   height: 600px;
+   background: black;
+   border: 1px solid white;
+}
+
+.react-responsive-modal-container .react-responsive-modal-closeButton path {
+   fill: white;
+}

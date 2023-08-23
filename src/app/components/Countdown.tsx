@@ -1,4 +1,8 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
+import { Cinzel } from "next/font/google";
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["600"] });
 
 const Countdown = () => {
    const [timeUntilHalloween, setTimeUntilHalloween] = useState("00:00:00");
@@ -10,7 +14,7 @@ const Countdown = () => {
    });
    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
    const [isTargetDate, setIsTargetDate] = useState(false);
-   const HALLOWEEN = `October 21 ${currentYear}`;
+   const HALLOWEEN = `October 31 ${currentYear}`;
 
    const isTodayTargetDate = () => {
       const targetDate = new Date(HALLOWEEN).setHours(0, 0, 0, 0);
@@ -57,12 +61,14 @@ const Countdown = () => {
    }, [currentYear]);
 
    return (
-      <div className="cinzel text-center text-[#e88e06] font-bold">
+      <div
+         className={`${cinzel.className} text-center text-[#e88e06] font-bold`}
+      >
          {isTargetDate ? (
-            <strong className="text-lg">Happy Halloween!</strong>
+            <strong className="text-[14px]">Happy Halloween!</strong>
          ) : (
             <div className="flex gap-1 items-center justify-center">
-               <p className="text-xs mr-1">Countdown to Halloween:</p>
+               <p className="text-[14px] mr-1">Countdown to Halloween:</p>
                <div>{formatDigit(countdown.days)}</div>:
                <div>{formatDigit(countdown.hours)}</div>:
                <div>{formatDigit(countdown.minutes)}</div>:

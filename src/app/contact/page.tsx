@@ -56,9 +56,9 @@ const ContactPage = () => {
                      value={subject}
                      onChange={(e) => setSubject(e.target.value)}
                   >
-                     <option value="">General question</option>
-                     <option value="">Question regarding order</option>
-                     <option value="">Other</option>
+                     <option value="general">General question</option>
+                     <option value="order">Question regarding order</option>
+                     <option value="other">Other</option>
                   </select>
                   <textarea
                      name=""
