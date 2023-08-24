@@ -58,7 +58,7 @@ const Header = () => {
                   <div className="flex-1"></div>
                   <Link className="flex-1" href="/">
                      <h1
-                        className={`${pathway.className} text-[40px] text-center uppercase leading-6 whitespace-nowrap`}
+                        className={`${pathway.className} text-[30px] sm:text-[40px] text-center uppercase leading-6 whitespace-nowrap`}
                      >
                         Nightmare Carvings
                      </h1>
@@ -81,7 +81,7 @@ const Header = () => {
                   </div>
                </div>
 
-               <div className="flex flex-1 gap-0 md:gap-[35px] flex-col md:flex-row items-center">
+               <div className="flex flex-1 gap-0 sm:gap-[35px] flex-col sm:flex-row items-center">
                   <Link
                      href="/patterns"
                      className={

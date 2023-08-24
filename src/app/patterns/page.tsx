@@ -8,7 +8,7 @@ import PatternGrid from "../components/PatternGrid";
 
 const PatternsPage = async () => {
    const patterns = await client.fetch<SanityProduct[]>(
-      groq`*[_type == "product"] {
+      groq`*[_type == "product"] | order(_createdAt asc) {
          _id,
          title,
          image,
@@ -19,10 +19,8 @@ const PatternsPage = async () => {
    );
 
    return (
-      <div>
-         <div className="mt-[100px] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4	gap-[10px] text-center">
-            <PatternGrid patterns={patterns} />
-         </div>
+      <div className="sm:mt-[50px] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[10px] gap-y-[40px] sm:gap-y-[10px] text-center">
+         <PatternGrid patterns={patterns} />
       </div>
    );
 };

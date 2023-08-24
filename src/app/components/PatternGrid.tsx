@@ -15,16 +15,18 @@ interface PatternGridProps {
 }
 
 const PatternGrid: React.FC<PatternGridProps> = ({ patterns }) => {
-   const [open, setOpen] = useState(false);
+   const [openPatternIndex, setOpenPatternIndex] = useState<number | null>(
+      null
+   );
 
-   const onOpenModal = () => setOpen(true);
-   const onCloseModal = () => setOpen(false);
+   const onOpenModal = (index: number) => setOpenPatternIndex(index);
+   const onCloseModal = () => setOpenPatternIndex(null);
 
    return (
-      <div>
+      <>
          {patterns.map((pattern, index) => (
-            <>
-               <button key={pattern._id} onClick={onOpenModal}>
+            <div key={pattern._id}>
+               <button onClick={() => onOpenModal(index)}>
                   <Image
                      src={urlForImage(pattern.image).url()}
                      alt={pattern.title}
@@ -35,16 +37,20 @@ const PatternGrid: React.FC<PatternGridProps> = ({ patterns }) => {
                   <div>{pattern.title}</div>
                </button>
 
-               <Modal key={index} open={open} onClose={onCloseModal} center>
+               <Modal
+                  open={openPatternIndex === index}
+                  onClose={onCloseModal}
+                  center
+               >
                   <Pattern
                      title={pattern.title}
                      difficulty={pattern.difficulty}
                      price={pattern.price}
                   />
                </Modal>
-            </>
+            </div>
          ))}
-      </div>
+      </>
    );
 };
 
