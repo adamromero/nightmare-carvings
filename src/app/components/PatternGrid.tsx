@@ -22,7 +22,7 @@ const PatternGrid: React.FC<PatternGridProps> = ({ patterns }) => {
 
    return (
       <div>
-         {patterns.map((pattern) => (
+         {patterns.map((pattern, index) => (
             <>
                <button key={pattern._id} onClick={onOpenModal}>
                   <Image
@@ -35,7 +35,7 @@ const PatternGrid: React.FC<PatternGridProps> = ({ patterns }) => {
                   <div>{pattern.title}</div>
                </button>
 
-               <Modal open={open} onClose={onCloseModal} center>
+               <Modal key={index} open={open} onClose={onCloseModal} center>
                   <Pattern
                      title={pattern.title}
                      difficulty={pattern.difficulty}

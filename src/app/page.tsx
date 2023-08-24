@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./components/StyledComponents/Button";
-import Countdown from "./components/Countdown";
 
 export default function Home() {
    return (
@@ -13,7 +12,7 @@ export default function Home() {
             Have a look around to see the patterns...
          </p>
          <Button>Hello</Button>
-         <Countdown />
+
          <div className="text-center relative">
             <Link href="/patterns">
                <div className="top-1/2 text-3xl text-white w-full z-10 font-bold">
