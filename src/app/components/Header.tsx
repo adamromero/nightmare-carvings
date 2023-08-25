@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import { signIn, signOut } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { GiPumpkin } from "react-icons/gi";
+import { useCart } from "react-use-cart";
 
 import Countdown from "./Countdown";
 import { Cinzel, Pathway_Gothic_One } from "next/font/google";
@@ -19,6 +20,7 @@ const pathway = Pathway_Gothic_One({ subsets: ["latin"], weight: "400" });
 const Header = () => {
    const pathname = usePathname();
    const { data: session, status } = useSession();
+   const { cartTotal } = useCart();
 
    return (
       <header className="mb-[20px]">
@@ -74,8 +76,7 @@ const Header = () => {
                            className="absolute left-0 right-0 text-[16px] top-[9px] text-[white] font-bold"
                            style={{ textShadow: "1px 1px 1px black" }}
                         >
-                           {/* {cartTotal > 0 && cartTotal} */}
-                           {0}
+                           {cartTotal}
                         </div>
                      </button>
                   </div>
@@ -155,7 +156,7 @@ const Header = () => {
       //                className="flex cursor-pointer relative"
       //                // onClick={(e) => setCartOpen(!cartOpen)}
       //             >
-      //                <IoCartSharp className="text-[#e88e06] text-[35px]" />
+      //                <IoCartSharp className="text-[#e34b00] text-[35px]" />
       //                <div className="sans-serif absolute left-[15px] text-[15px] top-[5px] text-black font-bold">
       //                   {/* {cartTotal > 0 && cartTotal} */}
       //                   {0}
@@ -165,7 +166,7 @@ const Header = () => {
       //       </div>
       //    </div>
       //    <h1
-      //       className={`${pathway.className} text-[40px] font-bold text-[#e88e06] w-full p-1 border-[#e88e06] border-y-[1px] py-[20px]`}
+      //       className={`${pathway.className} text-[40px] font-bold text-[#e34b00] w-full p-1 border-[#e34b00] border-y-[1px] py-[20px]`}
       //    >
       //       <Link href="/">NIGHTMARE CARVINGS</Link>
       //    </h1>

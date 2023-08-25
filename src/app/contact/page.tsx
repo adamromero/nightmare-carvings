@@ -69,7 +69,7 @@ const ContactPage = () => {
                      value={message}
                      onChange={(e) => setMessage(e.target.value)}
                   ></textarea>
-                  <button className="bg-[#e88e06] text-black p-2" type="submit">
+                  <button className="bg-[#e34b00] text-black p-2" type="submit">
                      Submit
                   </button>
                </form>

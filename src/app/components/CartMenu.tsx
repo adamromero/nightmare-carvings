@@ -61,7 +61,7 @@ const CartMenu = () => {
          ))}
          <div className="!flex justify-end mt-6">
             <Link href="/checkout">
-               <a className="bg-[#e88e06] py-2 px-4 max-w-[150px] w-full text-center text-black font-bold">
+               <a className="bg-[#e34b00] py-2 px-4 max-w-[150px] w-full text-center text-black font-bold">
                   Checkout
                </a>
             </Link>

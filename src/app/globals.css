@@ -32,7 +32,8 @@ body {
 
 .react-responsive-modal-container .react-responsive-modal-modal {
    width: 100%;
-   height: 600px;
+   max-width: 550px;
+   height: 300px;
    background: black;
    border: 1px solid white;
 }

@@ -62,7 +62,7 @@ const Countdown = () => {
 
    return (
       <div
-         className={`${cinzel.className} text-center text-[#e88e06] text-[14px] font-bold`}
+         className={`${cinzel.className} text-center text-[#e34b00] text-[14px] font-bold`}
       >
          {isTargetDate ? (
             <strong className="text-[14px]">Happy Halloween!</strong>

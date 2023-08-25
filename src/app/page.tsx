@@ -5,7 +5,7 @@ import Button from "./components/StyledComponents/Button";
 export default function Home() {
    return (
       <>
-         <h1 className="cinzel text-2xl font-bold text-center text-[#e88e06]">
+         <h1 className="cinzel text-2xl font-bold text-center text-[#e34b00]">
             Welcome to Nightmare Carvings!
          </h1>
          <p className="max-w-[960px]">

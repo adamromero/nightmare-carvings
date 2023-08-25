@@ -1,45 +1,79 @@
 import React from "react";
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
-// import { SanityProduct } from "../../../config/inventory";
+import { SanityProduct } from "../../../config/inventory";
 import { GiPumpkin } from "react-icons/gi";
+import { useCart } from "react-use-cart";
 
 interface PatternProps {
+   id: string;
    title: string;
    difficulty: number;
    price: number;
 }
 
-const Pattern: React.FC<PatternProps> = ({
+interface PatternGridProps {
+   id: string;
+   title: string;
+   difficulty: number;
+   price: number;
+   image: any;
+}
+
+const Pattern: React.FC<PatternGridProps> = ({
+   id,
    title,
-   // image,
+   image,
    difficulty,
    price,
 }) => {
+   const { addItem, inCart } = useCart();
+
    return (
       <div>
-         {/* <Image
-            src={urlForImage(image).url()}
-            alt={title}
-            width="150"
-            height="150"
-            className="mx-auto"
-         /> */}
-         <h3>{title}</h3>
-         <div className="flex justify-center items-center gap-[5px]">
-            <div>Difficulty:</div>
-            <div className="flex text-[20px]">
-               {[...Array(5)].map((_, i) => (
-                  <span key={i}>
-                     <GiPumpkin
-                        className={i < difficulty ? "text-[orange]" : ""}
-                     />
-                  </span>
-               ))}
+         <h3 className="text-[18px] mb-[10px]">{title}</h3>
+         <div className="flex gap-[20px]">
+            <Image
+               src={urlForImage(image).url()}
+               alt={title}
+               width="150"
+               height="150"
+            />
+            <div className="flex flex-col gap-[10px]">
+               <div className="flex justify-end items-center gap-[5px]">
+                  <div>Difficulty:</div>
+                  <div className="flex text-[20px]">
+                     {[...Array(5)].map((_, i) => (
+                        <span key={i}>
+                           <GiPumpkin
+                              className={i < difficulty ? "text-[#e34b00]" : ""}
+                           />
+                        </span>
+                     ))}
+                  </div>
+               </div>
+               <div>Price: ${price.toFixed(2)}</div>
+               {!inCart(id) ? (
+                  <button
+                     onClick={() =>
+                        addItem({
+                           id,
+                           title,
+                           difficulty,
+                           price,
+                        })
+                     }
+                     className="bg-[#e34b00] text-black"
+                  >
+                     Add to Cart
+                  </button>
+               ) : (
+                  <button className="bg-[#e34b00] text-black cursor-not-allowed">
+                     Item added!
+                  </button>
+               )}
             </div>
          </div>
-         <div>Price: ${price.toFixed(2)}</div>
-         <button className="bg-[orange] text-black">Add to Cart</button>
       </div>
    );
 };
